@@ -1,0 +1,12 @@
+body {
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+article{
+	text-align: center;
+}
+
+.article-img {
+	width: 100%;
+	border-radius: 5px;
+}

@@ -1,0 +1,9 @@
+/venv
+/.idea
+test.py
+github
+github.pub
+server.db
+requirements.txt
+init_db.py
+__pycache__/

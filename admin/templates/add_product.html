@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Добавить товар</title>
+	<link rel="stylesheet" href="{{ url_for('.static', filename='css/admin.css') }}">
+	<script src="{{ url_for('.static', filename='js/admin.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+	{% for category, message in get_flashed_messages(True) %}
+		<div class="flash {{category}}">{{ message }}</div>
+	{% endfor %}
+    <form id="add_product" action="" method="post" enctype='multipart/form-data'>
+			<fieldset>
+				<legend>Product</legend>
+				<p><input type="text" name="title" placeholder="Title"></p>
+				<p><input type="text" name="slug" placeholder="slug"></p>
+				<p><input type="file" name="logo" accept="image/jpeg,image/png"></p>
+				<p><textarea name="desc" rows="5" placeholder="Description"></textarea></p></p>
+
+			</fieldset>
+			<fieldset id="items">
+				<legend>Items</legend>
+				<p><input type="text" name="item1" placeholder="Item name"><input type="number" name="cost1" placeholder="Cost"></p>
+				<button onclick="add_item()" type="button">Add item</button>
+			</fieldset>
+			<fieldset>
+				<legend>Model</legend>
+				<select name="model">
+					{% for brand in models %}
+
+						<optgroup label="{{ brand }}">
+							{% for model in models[brand] %}
+								<option value="{{ model.slug }}">{{ model.name }}</option>
+							{% endfor %}
+						</optgroup>
+
+					{% endfor %}
+				</select>
+				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Галерея</legend>
+				<p><input type="file" name="gallery" accept="image/jpeg,image/png" multiple></p>
+
+			</fieldset>
+	</form>
+	<button form="add_product" type="submit">Добавить</button>
+{% endblock %}

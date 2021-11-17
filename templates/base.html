@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+		{% block head %}{% endblock %}
+	</head>
+	<body>
+		<header>
+			<a href="/"><img align="left" width="200px" src="{{ url_for('static', filename='pics/logo.svg') }}"/></a>
+			<a href=""><img align="right" width="40px" src="{{ url_for('static', filename='pics/telegram.png') }}"/></a>
+			<a href=""><img align="right" width="40px" src="{{ url_for('static', filename='pics/vk.png') }}"/></a>
+		</header>
+
+		{% block body %}{% endblock %}
+
+		<footer>
+			<p><a href="/delivery">Доставка</a></p>
+			<p>Contacts</p>
+		</footer>
+	</body>
+</html>
